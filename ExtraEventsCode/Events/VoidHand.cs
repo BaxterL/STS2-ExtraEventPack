@@ -4,7 +4,6 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Events;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.Models.Acts;
 using MegaCrit.Sts2.Core.Models.Relics;
 using MegaCrit.Sts2.Core.Runs;
 using STS2RitsuLib.Interop.AutoRegistration;
@@ -12,9 +11,10 @@ using STS2RitsuLib.Scaffolding.Content;
 
 namespace ExtraEvents.ExtraEventsCode.Events;
 
-[RegisterActEvent(typeof(Overgrowth))]
+[RegisterSharedEvent]
 public sealed class VoidHand : ModEventTemplate
 {
+    public override bool IsShared => true;
     public override EventAssetProfile AssetProfile => new(
         InitialPortraitPath: Res.EventPortrait<VoidHand>()
     );
@@ -25,7 +25,7 @@ public sealed class VoidHand : ModEventTemplate
         new StringVar("Relic", "干瘪之手")
     ];
 
-    public override bool IsAllowed(IRunState runState) => true;
+    public override bool IsAllowed(IRunState runState) => runState.CurrentActIndex == 0;
 
     protected override IReadOnlyList<EventOption> GenerateInitialOptions() =>
     [

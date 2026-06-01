@@ -19,9 +19,10 @@ using STS2RitsuLib.Scaffolding.Content;
 
 namespace ExtraEvents.ExtraEventsCode.Events;
 
-[RegisterActEvent(typeof(Overgrowth))]
+[RegisterSharedEvent]
 public sealed class ShadowTadpole : ModEventTemplate
 {
+    public override bool IsShared => true;
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new GoldVar(333),
@@ -35,8 +36,7 @@ public sealed class ShadowTadpole : ModEventTemplate
 
     public override bool IsAllowed(IRunState runState)
     {
-        var pile = PileType.Deck.GetPile(Owner!);
-        return pile.Cards.Any(c => CanEnchant(c));
+        return runState.CurrentActIndex == 0;
     }
 
     protected override IReadOnlyList<EventOption> GenerateInitialOptions()

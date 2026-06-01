@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Events;
@@ -19,9 +20,10 @@ using STS2RitsuLib.Scaffolding.Content;
 
 namespace ExtraEvents.ExtraEventsCode.Events;
 
-[RegisterActEvent(typeof(Glory))]
+[RegisterSharedEvent]
 public sealed class ArcaneEnchantingAltar : ModEventTemplate
 {
+    public override bool IsShared => true;
     private EnchantmentModel? _selectedEnchantment;
     private int _readCount;
     private static readonly int[] ReadHpCosts = [9, 13, 27];
@@ -37,8 +39,7 @@ public sealed class ArcaneEnchantingAltar : ModEventTemplate
 
     public override bool IsAllowed(IRunState runState)
     {
-        var pile = PileType.Deck.GetPile(Owner!);
-        return pile.Cards.Any();
+        return runState.CurrentActIndex >= 1;
     }
 
     protected override IReadOnlyList<EventOption> GenerateInitialOptions()
@@ -131,15 +132,19 @@ public sealed class ArcaneEnchantingAltar : ModEventTemplate
             return;
         }
 
-        var count = _readCount + 1;
-        var pile = PileType.Deck.GetPile(Owner!);
-        var mutable = _selectedEnchantment.ToMutable();
-        var compatibleCards = pile.Cards
-            .Where(c => mutable.CanEnchant(c))
-            .Take(count)
-            .ToList();
+        int count;
+        if (_readCount == 0) count = 1;
+        else if (_readCount == 1) count = 3;
+        else count = 5;
 
-        foreach (var card in compatibleCards)
+        var cards = (await CardSelectCmd.FromDeckForEnchantment(
+            prefs: new CardSelectorPrefs(CardSelectorPrefs.EnchantSelectionPrompt, count),
+            player: Owner!,
+            enchantment: _selectedEnchantment,
+            amount: 1
+        )).ToList();
+
+        foreach (var card in cards)
         {
             var copy = _selectedEnchantment.ToMutable();
             CardCmd.Enchant(copy, card, 1m);
@@ -150,7 +155,7 @@ public sealed class ArcaneEnchantingAltar : ModEventTemplate
 
         var desc = L10NLookup($"{Id.Entry}.pages.ENCHANT.description");
         desc.Add("Enchantment", _selectedEnchantment.Title);
-        desc.Add("Cards", compatibleCards.Count);
+        desc.Add("Cards", cards.Count);
         SetEventFinished(desc);
     }
 
