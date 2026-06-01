@@ -1,0 +1,5 @@
+{
+  "EXTRA_EVENTS_CARD_MAGIC_MISSILE.title": "魔法飞弹",
+  "EXTRA_EVENTS_CARD_MAGIC_MISSILE.description": "造成 {Damage:diff()} 点伤害。",
+  "EXTRA_EVENTS_CARD_MAGIC_MISSILE.smartDescription": "造成 {Damage:diff()} 点伤害。"
+}

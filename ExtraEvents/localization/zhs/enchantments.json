@@ -1,0 +1,5 @@
+{
+  "EXTRA_EVENTS_ENCHANTMENT_PARASITISM.title": "寄生",
+  "EXTRA_EVENTS_ENCHANTMENT_PARASITISM.description": "造成的伤害增加[blue]50%[/blue]，并给予目标等同于此卡伤害的[gold]灾厄[/gold]。",
+  "EXTRA_EVENTS_ENCHANTMENT_PARASITISM.extraCardText": "给予目标等同于此卡伤害的灾厄。"
+}
