@@ -13,7 +13,7 @@ using STS2RitsuLib.Scaffolding.Content;
 
 namespace ExtraEvents.ExtraEventsCode.Events;
 
-[RegisterActEvent(typeof(Glory))] // 指定只有荣耀这章生成
+// [RegisterActEvent(typeof(Glory))] // 指定只有荣耀这章生成
 // [RegisterSharedEvent] // 如果需要自定义生成条件，可以注册成通用再重载isAllowed
 public sealed class TestEvent : ModEventTemplate
 {
