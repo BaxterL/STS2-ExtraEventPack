@@ -18,7 +18,7 @@ public sealed class InfiniteGold : ModEventTemplate
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new GoldVar(998),
+        new GoldVar(999),
         new GoldVar("PartialGold", 333),
     ];
 

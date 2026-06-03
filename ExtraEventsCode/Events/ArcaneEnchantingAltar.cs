@@ -134,8 +134,9 @@ public sealed class ArcaneEnchantingAltar : ModEventTemplate
 
         int count;
         if (_readCount == 0) count = 1;
-        else if (_readCount == 1) count = 3;
-        else count = 5;
+        else if (_readCount == 1) count = 2;
+        else if (_readCount == 2) count = 3;
+        else count = 4;
 
         var cards = (await CardSelectCmd.FromDeckForEnchantment(
             prefs: new CardSelectorPrefs(CardSelectorPrefs.EnchantSelectionPrompt, count),
