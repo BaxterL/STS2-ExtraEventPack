@@ -45,7 +45,8 @@ public sealed class MomosMockery : ModRelicTemplate
             var curse = Owner.RunState.Rng.Niche.NextItem(availableCurses);
             if (curse == null) continue;
             availableCurses.Remove(curse);
-            var card = shuffler.Creature.CombatState.CreateCard(curse, Owner);
+            var card = shuffler.Creature?.CombatState.CreateCard(curse, Owner);
+            if (card == null) continue;
             results.Add(await CardPileCmd.AddGeneratedCardToCombat(card, PileType.Draw, Owner, CardPilePosition.Random));
         }
 

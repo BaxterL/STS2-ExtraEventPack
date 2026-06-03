@@ -1,3 +1,4 @@
+using ExtraEvents.ExtraEventsCode.Cards;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Commands;
@@ -31,14 +32,14 @@ public sealed class InfiniteGold : ModEventTemplate
 
     protected override IReadOnlyList<EventOption> GenerateInitialOptions() =>
     [
-        new EventOption(this, TakeAll, InitialOptionKey("TAKE_ALL"), HoverTipFactory.FromCardWithCardHoverTips<Normality>()),
+        new EventOption(this, TakeAll, InitialOptionKey("TAKE_ALL"), HoverTipFactory.FromCardWithCardHoverTips<Supernormality>()),
         new EventOption(this, TakeSome, InitialOptionKey("TAKE_SOME"), HoverTipFactory.FromCardWithCardHoverTips<Greed>()),
     ];
 
     private async Task TakeAll()
     {
         await PlayerCmd.GainGold(DynamicVars.Gold.BaseValue, Owner!);
-        var curse = Owner!.RunState.CreateCard<Normality>(Owner);
+        var curse = Owner!.RunState.CreateCard<Supernormality>(Owner);
         CardCmd.PreviewCardPileAdd(await CardPileCmd.Add(curse, PileType.Deck), 2f);
         SetEventFinished(L10NLookup($"{Id.Entry}.pages.TAKE_ALL.description"));
     }

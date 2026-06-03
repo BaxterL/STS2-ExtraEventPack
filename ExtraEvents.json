@@ -3,7 +3,7 @@
   "name": "额外事件",
   "author": "BaxterL",
   "description": "添加了更多额外事件",
-  "version": "0.1.0",
+  "version": "0.2.1",
   "min_game_version": "0.106.0",
   "has_pck": true,
   "has_dll": true,
