@@ -80,5 +80,13 @@
   "EXTRA_EVENTS_EVENT_MIRROR_ROOM.pages.CRIT.success": "骰子在空中翻滚，[jitter]缓缓落下[/jitter]……\n\n[b][gold]{Roll}！！[/gold][/b]\n\n[sine][rainbow freq=0.3 sat=0.8 val=1]大成功！[/rainbow][/sine] 法阵爆发出耀眼的光芒，二十瓶复制药水自镜中涌出！",
   "EXTRA_EVENTS_EVENT_MIRROR_ROOM.pages.FAIL.description": "骰子滚落……\n\n[red][b]{Roll}……[/b][/red]\n\n[jitter][red]大失败！[/red][/jitter] 法阵骤然变暗，一股诅咒之力贯穿你的身体。失去[red]20[/red]点生命值。",
   "EXTRA_EVENTS_EVENT_MIRROR_ROOM.pages.NORMAL.description": "骰子停在了……\n\n[gold]{Roll}[/gold]\n\n三瓶复制药水从镜面中浮现。不多不少，[sine]刚刚好够用[/sine]。",
-  "EXTRA_EVENTS_EVENT_MIRROR_ROOM.pages.LEAVE.description": "你看了看那枚浮空的骰子，[sine]决定不赌[/sine]。\n\n但你在离开前顺手从法阵边缘取下了一袋金币。获得[gold]75[/gold]枚金币。"
+  "EXTRA_EVENTS_EVENT_MIRROR_ROOM.pages.LEAVE.description": "你看了看那枚浮空的骰子，[sine]决定不赌[/sine]。\n\n但你在离开前顺手从法阵边缘取下了一袋金币。获得[gold]75[/gold]枚金币。",
+  "EXTRA_EVENTS_EVENT_INFINITE_GOLD.title": "无尽宝藏",
+  "EXTRA_EVENTS_EVENT_INFINITE_GOLD.pages.INITIAL.description": "你推开一扇[sine]暗金大门[/sine]，眼前的景象[jitter]令人窒息[/jitter]——\n\n[sine][rainbow freq=0.3 sat=0.8 val=1]成山的金币[/rainbow][/sine]堆满了整个密室，[gold]珠宝[/gold]、[purple]神器碎片[/purple]、[gold]黄金圣杯[/gold]散落其间，仿佛整座尖塔的财富都汇聚于此。\n\n[sine]空气中弥漫着金币特有的金属气味……[/sine]",
+  "EXTRA_EVENTS_EVENT_INFINITE_GOLD.pages.INITIAL.options.TAKE_ALL.title": "全部带走",
+  "EXTRA_EVENTS_EVENT_INFINITE_GOLD.pages.INITIAL.options.TAKE_ALL.description": "获得[gold]999[/gold]枚金币。得到[red]凡庸[/red]。",
+  "EXTRA_EVENTS_EVENT_INFINITE_GOLD.pages.INITIAL.options.TAKE_SOME.title": "只取部分",
+  "EXTRA_EVENTS_EVENT_INFINITE_GOLD.pages.INITIAL.options.TAKE_SOME.description": "获得[gold]333[/gold]枚金币。得到[red]贪婪[/red]。",
+  "EXTRA_EVENTS_EVENT_INFINITE_GOLD.pages.TAKE_ALL.description": "你[jitter]扑向金币的海洋[/jitter]，拼命地将一切塞进口袋。\n\n金币、珠宝、神器碎片——你一件都没有放过。\n\n获得[gold]{Gold}[/gold]枚金币。但当你踏出密室时，指尖泛起[red]黯淡死灰[/red]——[red]凡庸的诅咒[/red]已悄然缠身。",
+  "EXTRA_EVENTS_EVENT_INFINITE_GOLD.pages.TAKE_SOME.description": "你深吸一口气，[sine]克制住席卷一切的冲动[/sine]。\n\n只取走一小袋金币便转身离开。但对于这份财富的渴望，已然[red]在心中扎根[/red]。\n\n获得[gold]{PartialGold}[/gold]枚金币。你感到一缕[red]贪婪的诅咒[/red]钻入了牌组深处。"
 }
