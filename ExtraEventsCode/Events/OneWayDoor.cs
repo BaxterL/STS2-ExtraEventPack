@@ -41,7 +41,7 @@ public sealed class OneWayDoor : ModEventTemplate
     {
         return new EventOption[]
         {
-            new EventOption(this, Ram, InitialOptionKey("RAM")).ThatDecreasesMaxHp(RamCosts[0]),
+            new EventOption(this, Ram, InitialOptionKey("RAM"), HoverTipFactory.FromRelic<JewelryBox>()).ThatDecreasesMaxHp(RamCosts[0]),
             new EventOption(this, GoAround, InitialOptionKey("GO_AROUND")),
         };
     }
@@ -66,7 +66,7 @@ public sealed class OneWayDoor : ModEventTemplate
         {
             var options = new List<EventOption>
             {
-                new EventOption(this, Ram, ModOptionKey($"RAM_{_ramCount}", "RAM")).ThatDecreasesMaxHp(RamCosts[_ramCount]),
+                new EventOption(this, Ram, ModOptionKey($"RAM_{_ramCount}", "RAM"), HoverTipFactory.FromRelic<JewelryBox>()).ThatDecreasesMaxHp(RamCosts[_ramCount]),
                 new EventOption(this, LeaveMidway, ModOptionKey($"RAM_{_ramCount}", "LEAVE")),
             };
             SetEventState(L10NLookup($"{Id.Entry}.pages.RAM_{_ramCount}.description"), options);

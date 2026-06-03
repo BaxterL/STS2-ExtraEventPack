@@ -43,7 +43,7 @@ public sealed class Supernormality : ModCardTemplate
             yield return new CalculationBaseVar(3m);
             yield return new CalculationExtraVar(-1m);
             yield return new CalculatedVar(CalculatedCardsKey).WithMultiplier(
-                (CardModel card, Creature _) => (decimal)Math.Min(NumOfCardsPerTurn, ((Supernormality)card).CardsPlayedThisTurn)
+                (CardModel card, Creature? _) => (decimal)Math.Min(NumOfCardsPerTurn, ((Supernormality)card).CardsPlayedThisTurn)
             );
         }
     }

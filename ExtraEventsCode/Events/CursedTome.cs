@@ -1,8 +1,11 @@
+using ExtraEvents.ExtraEventsCode.Relics;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.Events;
-using MegaCrit.Sts2.Core.Factories;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Relics;
 using MegaCrit.Sts2.Core.Rewards;
@@ -30,18 +33,34 @@ public sealed class CursedTome : ModEventTemplate
     {
         return new EventOption[]
         {
-            new EventOption(this, ReadAll, InitialOptionKey("READ_ALL")),
-            new EventOption(this, ReadOne, InitialOptionKey("READ_ONE")),
+            new EventOption(this, ReadAll, InitialOptionKey("READ_ALL"), HoverTipFactory.FromRelic<MomosMockery>()),
+            new EventOption(this, ReadOne, InitialOptionKey("READ_ONE"), HoverTipFactory.FromRelic<ArchaicTooth>()),
         };
     }
 
+    private static readonly HashSet<ModelId> ExcludedOrobasIds = new()
+    {
+        ModelDb.Relic<ArchaicTooth>().Id,
+        ModelDb.Relic<TouchOfOrobas>().Id,
+    };
+
     private async Task ReadAll()
     {
+        var ancientRelics = ModelDb.AllRelics
+            .Where(r => r.Rarity == RelicRarity.Ancient)
+            .Where(r => !ExcludedOrobasIds.Contains(r.Id))
+            .ToList();
+        Rng.Shuffle(ancientRelics);
+        var chosen = ancientRelics.Take(5).ToList();
+
         var rewards = new List<Reward>();
-        for (int i = 0; i < 5; i++)
-            rewards.Add(new RelicReward(RelicFactory.PullNextRelicFromFront(Owner!).ToMutable(), Owner!));
+        foreach (var relic in chosen)
+            rewards.Add(new RelicReward(relic.ToMutable(), Owner!));
 
         await RewardsCmd.OfferCustom(Owner!, rewards);
+
+        await RelicCmd.Obtain<MomosMockery>(Owner!);
+
         SetEventFinished(L10NLookup($"{Id.Entry}.pages.READ_ALL.description"));
     }
 

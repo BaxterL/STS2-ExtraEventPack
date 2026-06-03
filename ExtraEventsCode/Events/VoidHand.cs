@@ -31,7 +31,7 @@ public sealed class VoidHand : ModEventTemplate
     [
         new EventOption(this, ReachOut, InitialOptionKey("REACH_OUT"), HoverTipFactory.FromCardWithCardHoverTips<MagicMissile>()),
         new EventOption(this, Ignore, InitialOptionKey("IGNORE")),
-        new EventOption(this, Sever, InitialOptionKey("SEVER")),
+        new EventOption(this, Sever, InitialOptionKey("SEVER"), HoverTipFactory.FromRelic<MummifiedHand>()),
     ];
 
     private async Task ReachOut()

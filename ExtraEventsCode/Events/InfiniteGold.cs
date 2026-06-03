@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Events;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Runs;
@@ -30,8 +31,8 @@ public sealed class InfiniteGold : ModEventTemplate
 
     protected override IReadOnlyList<EventOption> GenerateInitialOptions() =>
     [
-        new EventOption(this, TakeAll, InitialOptionKey("TAKE_ALL")),
-        new EventOption(this, TakeSome, InitialOptionKey("TAKE_SOME")),
+        new EventOption(this, TakeAll, InitialOptionKey("TAKE_ALL"), HoverTipFactory.FromCardWithCardHoverTips<Normality>()),
+        new EventOption(this, TakeSome, InitialOptionKey("TAKE_SOME"), HoverTipFactory.FromCardWithCardHoverTips<Greed>()),
     ];
 
     private async Task TakeAll()

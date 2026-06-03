@@ -4,6 +4,7 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Events;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Potions;
@@ -33,7 +34,7 @@ public sealed class MirrorRoom : ModEventTemplate
     {
         return new EventOption[]
         {
-            new EventOption(this, RollDice, InitialOptionKey("ROLL")),
+            new EventOption(this, RollDice, InitialOptionKey("ROLL"), HoverTipFactory.FromPotion(ModelDb.Potion<Duplicator>())),
             new EventOption(this, Leave, InitialOptionKey("LEAVE")),
         };
     }
