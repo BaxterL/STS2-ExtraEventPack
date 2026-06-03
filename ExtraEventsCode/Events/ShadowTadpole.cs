@@ -25,7 +25,7 @@ public sealed class ShadowTadpole : ModEventTemplate
     public override bool IsShared => true;
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new GoldVar(333),
+        new GoldVar(110),
         new CardsVar(1),
         new StringVar("Enchantment", "寄生")
     ];

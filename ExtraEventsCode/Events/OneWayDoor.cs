@@ -20,7 +20,7 @@ public sealed class OneWayDoor : ModEventTemplate
 {
     private int _ramCount;
     private static readonly int[] RamCosts = [5, 6, 7];
-    private static readonly int[] LeaveCosts = [30, 50, 70];
+    private static readonly int[] LeaveCosts = [30, 50, 88];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
@@ -41,7 +41,7 @@ public sealed class OneWayDoor : ModEventTemplate
     {
         return new EventOption[]
         {
-            new EventOption(this, Ram, InitialOptionKey("RAM"), HoverTipFactory.FromRelic<JewelryBox>()).ThatDecreasesMaxHp(RamCosts[0]),
+            new EventOption(this, Ram, InitialOptionKey("RAM")).ThatDecreasesMaxHp(RamCosts[0]),
             new EventOption(this, GoAround, InitialOptionKey("GO_AROUND")),
         };
     }
@@ -64,9 +64,13 @@ public sealed class OneWayDoor : ModEventTemplate
         }
         else
         {
+            var ramOption = _ramCount == 2
+                ? new EventOption(this, Ram, ModOptionKey($"RAM_{_ramCount}", "RAM"), HoverTipFactory.FromRelic<JewelryBox>()).ThatDecreasesMaxHp(RamCosts[_ramCount])
+                : new EventOption(this, Ram, ModOptionKey($"RAM_{_ramCount}", "RAM")).ThatDecreasesMaxHp(RamCosts[_ramCount]);
+
             var options = new List<EventOption>
             {
-                new EventOption(this, Ram, ModOptionKey($"RAM_{_ramCount}", "RAM"), HoverTipFactory.FromRelic<JewelryBox>()).ThatDecreasesMaxHp(RamCosts[_ramCount]),
+                ramOption,
                 new EventOption(this, LeaveMidway, ModOptionKey($"RAM_{_ramCount}", "LEAVE")),
             };
             SetEventState(L10NLookup($"{Id.Entry}.pages.RAM_{_ramCount}.description"), options);
@@ -75,7 +79,7 @@ public sealed class OneWayDoor : ModEventTemplate
 
     private async Task LeaveMidway()
     {
-        await PlayerCmd.LoseGold(LeaveCosts[_ramCount - 1], Owner!, GoldLossType.Spent);
+        await PlayerCmd.GainGold(LeaveCosts[_ramCount - 1], Owner!);
         SetEventFinished(L10NLookup($"{Id.Entry}.pages.LEAVE_MIDWAY.description"));
     }
 }
