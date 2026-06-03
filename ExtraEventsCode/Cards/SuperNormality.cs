@@ -4,11 +4,16 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.CardPools;
+using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
-
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace ExtraEvents.ExtraEventsCode.Cards;
 
+[RegisterCard(typeof(CurseCardPool))]
 public sealed class Supernormality : ModCardTemplate
 {
     private const int NumOfCardsPerTurn = 3;
