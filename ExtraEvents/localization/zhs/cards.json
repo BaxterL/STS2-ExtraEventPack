@@ -4,5 +4,8 @@
   "EXTRA_EVENTS_CARD_MAGIC_MISSILE.smartDescription": "造成 {Damage:diff()} 点伤害。",
   "EXTRA_EVENTS_CARD_SUPERNORMALITY.title": "永恒凡庸",
   "EXTRA_EVENTS_CARD_SUPERNORMALITY.description": "你在本回合不能打出超过3张牌。",
-  "EXTRA_EVENTS_CARD_SUPERNORMALITY.smartDescription": "你在本回合不能打出超过3张牌。"
+  "EXTRA_EVENTS_CARD_SUPERNORMALITY.smartDescription": "你在本回合不能打出超过3张牌。",
+  "EXTRA_EVENTS_CARD_DISPELLING_STONE.title": "破妄净石",
+  "EXTRA_EVENTS_CARD_DISPELLING_STONE.description": "消耗你卡组中所有的[red]诅咒[/red]牌。",
+  "EXTRA_EVENTS_CARD_DISPELLING_STONE.smartDescription": "消耗卡组中所有的[red]诅咒[/red]牌。"
 }

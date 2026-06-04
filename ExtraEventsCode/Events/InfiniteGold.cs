@@ -16,8 +16,6 @@ namespace ExtraEvents.ExtraEventsCode.Events;
 [RegisterSharedEvent]
 public sealed class InfiniteGold : ModEventTemplate
 {
-    public override bool IsShared => true;
-
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new GoldVar(999),

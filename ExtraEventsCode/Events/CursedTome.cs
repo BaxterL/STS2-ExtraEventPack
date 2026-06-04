@@ -18,8 +18,6 @@ namespace ExtraEvents.ExtraEventsCode.Events;
 [RegisterSharedEvent]
 public sealed class CursedTome : ModEventTemplate
 {
-    public override bool IsShared => true;
-
     public override EventAssetProfile AssetProfile => new(
         InitialPortraitPath: Res.EventPortrait<CursedTome>()
     );

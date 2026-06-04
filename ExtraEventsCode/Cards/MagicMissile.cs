@@ -9,7 +9,7 @@ using STS2RitsuLib.Scaffolding.Content;
 
 namespace ExtraEvents.ExtraEventsCode.Cards;
 
-[RegisterCard(typeof(ColorlessCardPool))]
+[RegisterCard(typeof(EventCardPool))]
 public sealed class MagicMissile : ModCardTemplate
 {
     private const int BaseEnergyCost = 0;

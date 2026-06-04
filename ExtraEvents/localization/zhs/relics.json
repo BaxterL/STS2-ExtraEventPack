@@ -2,5 +2,10 @@
   "EXTRA_EVENTS_RELIC_MOMOS_MOCKERY.title": "摩莫斯的戏谑",
   "EXTRA_EVENTS_RELIC_MOMOS_MOCKERY.description": "每当你洗牌抽牌堆时，将[blue]5[/blue]张随机[red]诅咒[/red]牌塞入抽牌堆。",
   "EXTRA_EVENTS_RELIC_MOMOS_MOCKERY.eventDescription": "每当你洗牌抽牌堆时，将[blue]5[/blue]张随机[red]诅咒[/red]牌塞入抽牌堆。",
-  "EXTRA_EVENTS_RELIC_MOMOS_MOCKERY.flavor": "摩莫斯从不吝啬他的馈赠——只是你未必消受得起。"
+  "EXTRA_EVENTS_RELIC_MOMOS_MOCKERY.flavor": "摩莫斯从不吝啬他的馈赠——只是你未必消受得起。",
+  "EXTRA_EVENTS_RELIC_CALAMITY_RING.title": "祸谑之环",
+  "EXTRA_EVENTS_RELIC_CALAMITY_RING.description": "拾起时，变化你牌组中的所有牌。",
+  "EXTRA_EVENTS_RELIC_CALAMITY_RING.eventDescription": "变化你牌组中的所有牌。",
+  "EXTRA_EVENTS_RELIC_CALAMITY_RING.infoText": "变化",
+  "EXTRA_EVENTS_RELIC_CALAMITY_RING.flavor": "一枚布满裂痕的暗色金属环，触碰它的瞬间，万物皆被扭曲重塑。"
 }

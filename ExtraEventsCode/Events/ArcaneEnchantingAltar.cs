@@ -23,7 +23,6 @@ namespace ExtraEvents.ExtraEventsCode.Events;
 [RegisterSharedEvent]
 public sealed class ArcaneEnchantingAltar : ModEventTemplate
 {
-    public override bool IsShared => true;
     private EnchantmentModel? _selectedEnchantment;
     private int _readCount;
     private static readonly int[] ReadHpCosts = [9, 13, 27];

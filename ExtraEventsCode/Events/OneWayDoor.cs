@@ -20,11 +20,11 @@ public sealed class OneWayDoor : ModEventTemplate
 {
     private int _ramCount;
     private static readonly int[] RamCosts = [5, 6, 7];
-    private static readonly int[] LeaveCosts = [30, 50, 88];
+    private static readonly int[] LeaveCosts = [50, 88];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new GoldVar(88),
+        new GoldVar(23),
         new MaxHpVar(4)
     ];
 
@@ -48,7 +48,7 @@ public sealed class OneWayDoor : ModEventTemplate
 
     private async Task GoAround()
     {
-        await PlayerCmd.LoseGold(88, Owner!, GoldLossType.Spent);
+        await PlayerCmd.GainGold(DynamicVars.Gold.BaseValue, Owner!);
         SetEventFinished(L10NLookup($"{Id.Entry}.pages.GO_AROUND.description"));
     }
 

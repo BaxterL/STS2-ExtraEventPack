@@ -19,8 +19,6 @@ namespace ExtraEvents.ExtraEventsCode.Events;
 [RegisterSharedEvent]
 public sealed class MirrorRoom : ModEventTemplate
 {
-    public override bool IsShared => true;
-
     public override EventAssetProfile AssetProfile => new(
         InitialPortraitPath: Res.EventPortrait<MirrorRoom>()
     );

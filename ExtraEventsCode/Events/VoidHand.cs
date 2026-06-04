@@ -14,7 +14,6 @@ namespace ExtraEvents.ExtraEventsCode.Events;
 [RegisterSharedEvent]
 public sealed class VoidHand : ModEventTemplate
 {
-    public override bool IsShared => true;
     public override EventAssetProfile AssetProfile => new(
         InitialPortraitPath: Res.EventPortrait<VoidHand>()
     );
